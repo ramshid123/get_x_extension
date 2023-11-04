@@ -1,0 +1,1 @@
+This is a test purpose extension created to use along getx state management in flutter projects inside vscode.

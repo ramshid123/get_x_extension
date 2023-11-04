@@ -1,0 +1,41 @@
+{
+  "name": "getx-files",
+  "displayName": "GetX: Files",
+  "description": "Creates GetX files for Dart/Flutter projects",
+  "version": "0.0.1",
+  "publisher": "YourPublisherName",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": ["onCommand:extension.createFiles"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.createFiles",
+        "title": "GetX: Files"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "extension.createFiles",
+          "group": "1_new",
+          "when": "explorerResourceIsFolder"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "typescript": "^4.3.2",
+    "@types/node": "^16.3.1",
+    "vscode": "^1.4.0"
+  }
+}
