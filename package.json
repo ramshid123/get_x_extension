@@ -5,20 +5,31 @@
   "version": "0.0.1",
   "publisher": "RamshidDilhan",
   "engines": {
-    "vscode": "^1.85.0"
+    "vscode": "^1.60.0"
   },
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onCommand:extension.createFiles"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "getx-file-generator-001.helloWorld",
-        "title": "Hello World"
+        "command": "extension.createFiles",
+        "title": "GetX: Generate Files"
       }
-    ]
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "extension.createFiles",
+          "group": "1_new",
+          "when": "explorerResourceIsFolder"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -29,7 +40,7 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.85.0",
+    "@types/vscode": "^1.60.0",
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
